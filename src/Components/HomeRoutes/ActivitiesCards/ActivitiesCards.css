@@ -1,0 +1,80 @@
+/* ─── Section Wrapper ───────────────────────────────────────────────── */
+#ActivitiesCards {
+    position: relative;
+    overflow: hidden;
+}
+
+/* background image layer */
+#ActivitiesCards::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("/Images/BackgroundImageActivites.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* fade overlay — white washes over the photo so text stays readable */
+#ActivitiesCards::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.92) 40%,
+            rgba(255, 255, 255, 0.69) 75%,
+            rgba(255, 255, 255, 0.243) 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* everything inside sits above both layers */
+#ActivitiesCards>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* ─── Section Header ────────────────────────────────────────────────── */
+.activities-header {
+    margin-bottom: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activities-header h2 {
+    color: var(--color-text);
+}
+
+.activities-header h2.section-heading-accent::after {
+    width: 48px;
+}
+
+.activities-header p {
+    color: var(--color-text-muted);
+    max-width: 420px;
+}
+
+/* ─── Grid ──────────────────────────────────────────────────────────── */
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+}
+
+@media (max-width: 900px) {
+    .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+}
+
+@media (max-width: 560px) {
+    .activities-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+}

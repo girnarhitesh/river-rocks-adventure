@@ -1,0 +1,215 @@
+.root {
+  --bf-ratio: 1;
+  --bf-mask: var(--bf-mask-image);
+  --bf-overlay: var(--bf-overlay-image);
+
+  position: relative;
+  width: 100%;
+  max-width: var(--bf-max-width, 430px);
+  aspect-ratio: var(--bf-ratio);
+  margin-inline: auto;
+  filter: var(--bf-drop-shadow, drop-shadow(0 8px 16px rgba(0, 0, 0, 0.1)));
+}
+
+.mediaShell {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  -webkit-mask-image: var(--bf-mask);
+  mask-image: var(--bf-mask);
+  -webkit-mask-size: var(--bf-mask-size, 100% 100%);
+  mask-size: var(--bf-mask-size, 100% 100%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: var(--bf-mask-position, center);
+  mask-position: var(--bf-mask-position, center);
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
+.mediaShellClickable {
+  cursor: pointer;
+}
+
+.media {
+  width: 100%;
+  height: 100%;
+  object-fit: var(--bf-object-fit, cover);
+  object-position: var(--bf-object-position, center);
+  display: block;
+  transform: scale(var(--bf-media-scale, 1.08));
+}
+
+.mediaAnimate {
+  animation: brushKenBurns 16s ease-in-out infinite alternate;
+}
+
+@keyframes brushKenBurns {
+  from {
+    transform: scale(1.06);
+  }
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+  z-index: 2;
+  user-select: none;
+}
+
+.decorLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.strokes {
+  position: absolute;
+  top: 7%;
+  left: 5%;
+  width: 32%;
+  height: 18%;
+}
+
+.strokesAsset {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: top left;
+}
+
+.strokes::before,
+.strokes::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  border-radius: 999px;
+  background: #111;
+  transform-origin: left center;
+}
+
+.strokes::before {
+  top: 18%;
+  width: 88%;
+  height: 3px;
+  transform: rotate(-11deg);
+  box-shadow:
+    0 11px 0 rgba(17, 17, 17, 0.92),
+    0 22px 0 rgba(17, 17, 17, 0.62),
+    6px 34px 0 rgba(17, 17, 17, 0.38);
+}
+
+.strokes::after {
+  top: 62%;
+  width: 54%;
+  height: 2px;
+  transform: rotate(-18deg);
+  opacity: 0.55;
+}
+
+.splatters {
+  position: absolute;
+  inset: 0;
+}
+
+.splatterAsset {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0.85;
+}
+
+.splatters span {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(17, 17, 17, 0.55) 0%, rgba(17, 17, 17, 0) 72%);
+}
+
+.splatters span:nth-child(1) {
+  top: 11%;
+  right: 16%;
+  width: 7px;
+  height: 7px;
+}
+
+.splatters span:nth-child(2) {
+  bottom: 20%;
+  left: 12%;
+  width: 5px;
+  height: 5px;
+  opacity: 0.7;
+}
+
+.splatters span:nth-child(3) {
+  bottom: 14%;
+  right: 22%;
+  width: 9px;
+  height: 9px;
+  opacity: 0.45;
+}
+
+.splatters span:nth-child(4) {
+  top: 34%;
+  left: 8%;
+  width: 4px;
+  height: 4px;
+  opacity: 0.6;
+}
+
+.playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 4;
+  transform: translate(-50%, -50%);
+  width: 58px;
+  height: 58px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  animation: brushPlayPulse 2.4s ease-in-out infinite;
+}
+
+.playButton span {
+  width: 0;
+  height: 0;
+  margin-left: 4px;
+  border-top: 9px solid transparent;
+  border-bottom: 9px solid transparent;
+  border-left: 14px solid rgba(255, 255, 255, 0.95);
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.content > * {
+  pointer-events: auto;
+}
+
+@keyframes brushPlayPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.45);
+  }
+
+  50% {
+    box-shadow: 0 0 0 14px rgba(255, 255, 255, 0);
+  }
+}

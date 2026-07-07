@@ -1,0 +1,8 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Block build artifacts if ever exposed
+Disallow: /assets/
+
+Sitemap: https://www.riverrocksadventure.com/sitemap.xml

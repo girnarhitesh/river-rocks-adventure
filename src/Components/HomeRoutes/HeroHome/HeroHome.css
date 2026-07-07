@@ -1,0 +1,475 @@
+/* ─── Hero Wrapper ─────────────────────────────────────────────────── */
+#hero-home {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  /* overflow: hidden; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─── Background Beach Image ───────────────────────────────────────── */
+.BeachTopViewImage {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.BeachTopViewImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(255, 255, 255, 0.92) 40%,
+      rgba(255, 255, 255, 0.2) 75%,
+      rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-bg-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Kayak Slider Section ─────────────────────────────────────────── */
+.kayak-slider-section {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kayak-slider-section .swiper {
+  overflow: visible !important;
+}
+
+/* ─── Swiper ───────────────────────────────────────────────────────── */
+.kayak-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.kayak-swiper .swiper-wrapper {
+  align-items: center;
+}
+
+/* ─── Slide + Image ────────────────────────────────────────────────── */
+.kayak-slide {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  perspective: 900px;
+  perspective-origin: 50% 60%;
+}
+
+/* ─── 3-D tilt + parallax wrapper ─────────────────────────────────── */
+.kayak-3d-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kayak-image {
+  height: 88vh;
+  width: auto;
+  max-width: 90vw;
+  object-fit: contain;
+  display: block;
+  filter:
+    drop-shadow(0px 42px 90px rgba(0, 0, 0, 0.129)) drop-shadow(0px 22px 45px rgba(0, 0, 0, 0)) drop-shadow(0px 8px 18px rgba(0, 0, 0, 0.4));
+  transition: filter 0.45s ease;
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* ─── Water shadow beneath the kayak ──────────────────────────────── */
+.kayak-water-shadow {
+  width: 55%;
+  height: 28px;
+  /* background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.38) 0%, transparent 72%); */
+  filter: blur(10px);
+  border-radius: 50%;
+  margin-top: -14px;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+/* ─── Content Overlay ──────────────────────────────────────────────── */
+.hero-content {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5% 0 3%;
+  pointer-events: none;
+  max-width: 90%;
+  margin: auto;
+  align-items: center;
+}
+
+/* Big title */
+.hero-title {
+  font-size: clamp(5rem, 14vw, 18rem);
+  line-height: 0.88;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  /* text-transform: uppercase; */
+  margin: 0;
+  /* padding-top: 2vh; */
+  pointer-events: none;
+  user-select: none;
+  text-align: left;
+}
+
+/* Bottom row */
+.hero-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 95%;
+  padding-top: 50px;
+}
+
+/* Left block */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 320px;
+  pointer-events: all;
+}
+
+.hero-product-name {
+  font-size: 1.35rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.hero-description {
+  font-size: 0.78rem;
+  line-height: 1.65;
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-top: 4px;
+}
+
+.hero-btn {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.hero-btn:hover {
+  background: var(--brand-color);
+  transform: translateY(-1px);
+}
+
+.hero-price {
+  font-size: 1.6rem;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+}
+
+/* Right block */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 14px;
+  pointer-events: all;
+}
+
+.hero-spec {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-gray-950);
+}
+
+/* ─── Navigation Buttons ───────────────────────────────────────────── */
+.nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-gray-950);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: background 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.98);
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.16);
+}
+
+.nav-btn svg {
+  width: 22px;
+  height: 22px;
+  pointer-events: none;
+}
+
+.nav-btn--prev {
+  left: 5%;
+}
+
+.nav-btn--next {
+  right: 5%;
+}
+
+/* ─── Color Dot Indicators ─────────────────────────────────────────── */
+.kayak-color-dots {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.color-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  transition: background 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.color-dot--0 {
+  background: var(--accent-color);
+  border-color: #d4c009;
+}
+
+.color-dot--1 {
+  background: var(--brand-color);
+  border-color: #cc0000;
+}
+
+.color-dot--2 {
+  background: #1a6aee;
+  border-color: #0a50c8;
+}
+
+.color-dot--3 {
+  background: #22c040;
+  border-color: #10a030;
+}
+
+.color-dot--4 {
+  background: #8822e0;
+  border-color: #6610c0;
+}
+
+.color-dot--active {
+  transform: scale(1.45);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.9), 0 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+/* ─── Responsive ───────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  #hero-home {
+    height: 80vh;
+    min-height: 580px;
+    overflow: visible;
+    z-index: 2;
+  }
+
+  .kayak-slider-section {
+    position: relative;
+    height: 80vh;
+    z-index: 3;
+    overflow: visible;
+  }
+
+  .kayak-slide {
+    height: 100vh;
+    align-items: end;
+    justify-content: center;
+  }
+
+  .kayak-image {
+    height: 92vh;
+    max-width: 96vw;
+  }
+
+  .hero-content {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .hero-title {
+    position: absolute;
+    top: 7%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: clamp(3.4rem, 15vw, 5.8rem);
+    line-height: 0.9;
+    z-index: 6;
+    text-shadow: 0 2px 18px rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-bottom {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .hero-left {
+    position: absolute;
+    top: 21%;
+    left: 5%;
+    right: auto;
+    bottom: auto;
+    width: 40%;
+    max-width: 40%;
+    gap: 8px;
+    z-index: 6;
+  }
+
+  .hero-right {
+    position: absolute;
+    right: 5%;
+    bottom: 6%;
+    left: auto;
+    top: auto;
+    width: 44%;
+    max-width: 44%;
+    align-items: flex-end;
+    gap: 8px;
+    z-index: 6;
+  }
+
+  .hero-product-name {
+    font-size: 0.72rem;
+    line-height: 1.35;
+    text-shadow: 0 1px 10px rgba(255, 255, 255, 0.92);
+  }
+
+  .hero-description {
+    font-size: 0.62rem;
+    line-height: 1.5;
+    text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
+  }
+
+  .hero-spec {
+    font-size: 0.52rem;
+    line-height: 1.45;
+    text-align: right;
+    text-shadow: 0 1px 8px rgba(255, 255, 255, 0.9);
+  }
+
+  .nav-btn {
+    width: 42px;
+    height: 42px;
+  }
+
+  .nav-btn--prev {
+    left: 3%;
+  }
+
+  .nav-btn--next {
+    right: 3%;
+  }
+}
+
+@media (max-width: 480px) {
+  #hero-home {
+    min-height: 540px;
+  }
+
+  .kayak-image {
+    height: 90vh;
+    max-width: 98vw;
+  }
+
+  .hero-title {
+    font-size: clamp(2.9rem, 14vw, 4.2rem);
+    top: 8%;
+  }
+
+  .hero-left {
+    top: 22%;
+    left: 4%;
+    width: 42%;
+    max-width: 42%;
+  }
+
+  .hero-right {
+    right: 4%;
+    bottom: 5%;
+    width: 46%;
+    max-width: 46%;
+  }
+
+  .hero-product-name {
+    font-size: 0.65rem;
+  }
+
+  .hero-description {
+    font-size: 0.58rem;
+  }
+
+  .hero-spec {
+    font-size: 0.48rem;
+    letter-spacing: 0.06em;
+  }
+}

@@ -1,0 +1,124 @@
+#ride-explore {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg);
+  z-index: 1;
+}
+
+.ride-explore-wrap {
+  position: relative;
+}
+
+.ride-explore-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(5rem, 14vw, 11rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: rgba(0, 0, 0, 0.04);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ride-explore-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.5fr 1.5fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 64px);
+}
+
+.ride-explore-copy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  /* max-width: 520px; */
+}
+
+.ride-explore-accent {
+  position: absolute;
+  top: 8px;
+  left: -42px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--brand-color);
+}
+
+.ride-explore-accent::before {
+  content: "";
+  position: absolute;
+  top: -18px;
+  left: 2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-color);
+}
+
+.ride-explore-accent::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 100%;
+  width: 120px;
+  height: 1px;
+  border-top: 2px dashed var(--color-border-strong);
+  transform: translateY(-50%);
+}
+
+.ride-explore-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--color-text);
+  line-height: 1.05;
+}
+
+.ride-explore-title.section-heading-accent::after {
+  margin-top: 14px;
+}
+
+.ride-explore-title-light {
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+}
+
+.ride-explore-copy p {
+  color: var(--color-text-secondary);
+}
+
+.ride-explore-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.ride-brush-stage {
+  position: relative;
+  width: min(100%, 560px);
+  transform: rotate(-2.5deg);
+}
+
+.ride-brush-frame {
+  --bf-drop-shadow: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+}
+
+@media (max-width: 900px) {
+  .ride-explore-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ride-explore-visual {
+    order: -1;
+  }
+
+  .ride-explore-accent {
+    display: none;
+  }
+}

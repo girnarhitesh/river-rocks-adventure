@@ -1,0 +1,58 @@
+const ActivitiesCardsData = [
+    {
+        id: 1,
+        title: "Club House / NIM Beach",
+        price: "Rs. 600 /-",
+        priceLabel: "Per Person",
+        distance: "09 Kms",
+        description: "A short and refreshing rafting stretch — perfect for first-timers and families looking for a gentle river adventure.",
+        image: "/Images/ActivitiesImages/12Km.png",
+    },
+    {
+        id: 2,
+        title: "Brahmpuri to Ram Jhula",
+        price: "Rs. 800 /-",
+        priceLabel: "Per Person",
+        distance: "12 Kms",
+        description: "Enjoy scenic rapids between Brahmpuri and Ram Jhula with steady waves and beautiful Ganga views along the way.",
+        image: "/Images/ActivitiesImages/12Km.png",
+    },
+    {
+        id: 3,
+        title: "Shivpuri / NIM Beach",
+        price: "Rs. 1200 /-",
+        priceLabel: "Per Person",
+        distance: "16 Kms",
+        description: "One of the most popular routes with exciting rapids, guided safety support, and an unforgettable white-water experience.",
+        image: "/Images/ActivitiesImages/16Km.png",
+    },
+    {
+        id: 4,
+        title: "Marine Drive / NIM Beach",
+        price: "Rs. 2200 /-",
+        priceLabel: "Per Person",
+        distance: "25 Kms",
+        description: "A longer rafting journey through Marine Drive with stronger rapids and extended time on the river.",
+        image: "/Images/ActivitiesImages/24Km.png",
+    },
+    {
+        id: 5,
+        title: "Kaudiyala / NIM Beach",
+        price: "Rs. 3500 /-",
+        priceLabel: "Per Person",
+        distance: "35 Kms",
+        description: "Challenge yourself on a premium route from Kaudiyala — bold rapids, deep gorges, and a true adventure seeker's ride.",
+        image: "/Images/ActivitiesImages/24Km.png",
+    },
+    {
+        id: 6,
+        title: "Devprayag Expedition (2N/3D)",
+        price: "Rs. 20,000 /-",
+        priceLabel: "Per Person",
+        distance: "70 Kms",
+        description: "A multi-day expedition to Devprayag with camping, meals, and a complete river journey across 70 kms of raw Himalayan water.",
+        image: "/Images/ActivitiesImages/24Km.png",
+    },
+];
+
+export default ActivitiesCardsData;
