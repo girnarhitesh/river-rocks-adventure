@@ -15,8 +15,8 @@ const HomePage = () => (
     <Header />
     <HeroHome />
     <RideExplore />
-    <ActivitiesCards />
     <RaftingRouteExplorer />
+    <ActivitiesCards />
     <CompanyContent />
     <Footer />
     <WhatsAppFloat />

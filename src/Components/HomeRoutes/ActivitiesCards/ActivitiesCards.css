@@ -1,80 +1,447 @@
 /* ─── Section Wrapper ───────────────────────────────────────────────── */
 #ActivitiesCards {
-    position: relative;
-    overflow: hidden;
+  position: relative;
+  overflow: hidden;
 }
 
-/* background image layer */
 #ActivitiesCards::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image: url("/Images/BackgroundImageActivites.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    pointer-events: none;
-    z-index: 0;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/Images/BackgroundImageActivites.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* fade overlay — white washes over the photo so text stays readable */
 #ActivitiesCards::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.92) 40%,
-            rgba(255, 255, 255, 0.69) 75%,
-            rgba(255, 255, 255, 0.243) 100%);
-    pointer-events: none;
-    z-index: 1;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.94) 35%,
+    rgba(255, 255, 255, 0.86) 70%,
+    rgba(255, 255, 255, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
-/* everything inside sits above both layers */
-#ActivitiesCards>* {
-    position: relative;
-    z-index: 2;
+#ActivitiesCards > * {
+  position: relative;
+  z-index: 2;
 }
 
 /* ─── Section Header ────────────────────────────────────────────────── */
 .activities-header {
-    margin-bottom: 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  margin-bottom: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 680px;
+}
+
+.activities-header__tag {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--accent-color);
+  padding: 5px 12px;
+  border-radius: 999px;
 }
 
 .activities-header h2 {
-    color: var(--color-text);
+  color: var(--color-text);
 }
 
 .activities-header h2.section-heading-accent::after {
-    width: 48px;
+  width: 48px;
 }
 
 .activities-header p {
-    color: var(--color-text-muted);
-    max-width: 420px;
+  color: var(--color-text-muted);
+  font-family: "Questrial", sans-serif;
 }
 
-/* ─── Grid ──────────────────────────────────────────────────────────── */
-.activities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+/* ─── Category sections ─────────────────────────────────────────────── */
+.activities-categories {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 5vw, 48px);
+}
+
+.activity-category {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 20px;
+  padding: clamp(16px, 2.5vw, 22px);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(8px);
+}
+
+.activity-category--red {
+  border-left: 4px solid var(--brand-color);
+}
+
+.activity-category--yellow {
+  border-left: 4px solid var(--accent-color);
+}
+
+.activity-category__banner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border-medium);
+}
+
+.activity-category__banner-left {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  min-width: 0;
+}
+
+.activity-category__badge {
+  flex-shrink: 0;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 8px;
+  margin-top: 2px;
+}
+
+.activity-category--red .activity-category__badge {
+  background: var(--brand-color);
+  color: var(--color-white);
+}
+
+.activity-category--yellow .activity-category__badge {
+  background: var(--accent-color);
+  color: var(--color-black);
+}
+
+.activity-category__banner-left h3 {
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
+  line-height: 1.25;
+  margin: 0 0 6px;
+  color: var(--color-text);
+}
+
+.activity-category__banner-left p {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 520px;
+}
+
+.activity-category__banner-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.activity-category__meta-label {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-faint);
+}
+
+.activity-category__count {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+/* ─── Card grids per category ───────────────────────────────────────── */
+.activity-category__grid {
+  display: grid;
+  gap: 18px;
+}
+
+.activity-category__grid--bungee {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ─── Compact rafting tickets ───────────────────────────────────────── */
+.activity-category--rafting-compact {
+  padding: clamp(14px, 2vw, 18px);
+}
+
+.activity-category__banner--compact {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+}
+
+.activity-category__banner--compact p {
+  font-size: 0.76rem;
+}
+
+.raft-route-legend {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-color);
+  background: var(--color-red-soft);
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-red-border);
+}
+
+.raft-route-legend i {
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: linear-gradient(90deg, var(--brand-color), var(--accent-color));
+  position: relative;
+}
+
+.raft-route-legend i::after {
+  content: "→";
+  position: absolute;
+  right: -4px;
+  top: 50%;
+  transform: translateY(-58%);
+  font-size: 0.7rem;
+  font-style: normal;
+  color: var(--brand-color);
+}
+
+.raft-ticket-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.raft-ticket {
+  display: grid;
+  grid-template-columns: 130px 1fr auto;
+  gap: 12px;
+  align-items: stretch;
+  min-height: 118px;
+  padding: 10px 12px 10px 10px;
+  border-radius: 14px;
+  border: 1px solid var(--color-border-medium);
+  background: var(--color-bg);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.raft-ticket:hover {
+  border-color: var(--color-red-border);
+  box-shadow: 0 8px 22px var(--color-red-soft);
+}
+
+.raft-ticket__thumb-wrap {
+  width: 130px;
+  min-height: 98px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-gray-100);
+  flex-shrink: 0;
+}
+
+.raft-ticket__thumb {
+  width: 100%;
+  height: 100%;
+  min-height: 98px;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.raft-ticket__thumb--placeholder {
+  min-height: 98px;
+  background: linear-gradient(135deg, var(--color-gray-100), var(--color-gray-200));
+}
+
+.raft-ticket__content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.raft-ticket__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 3px;
+}
+
+.raft-ticket__title {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.raft-ticket__distance {
+  flex-shrink: 0;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brand-color);
+  background: var(--color-red-soft);
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.raft-ticket__desc {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.65rem;
+  line-height: 1.4;
+  color: var(--color-text-muted);
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.raft-ticket__action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.raft-ticket__price-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+}
+
+.raft-ticket__price {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand-color);
+  white-space: nowrap;
+}
+
+.raft-ticket__price-label {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.52rem;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+.raft-ticket__book {
+  border: 1px solid var(--color-black);
+  background: transparent;
+  color: var(--color-black);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.raft-ticket__book:hover {
+  background: var(--brand-color);
+  border-color: var(--brand-color);
+  color: var(--color-white);
+}
+
+@media (max-width: 1100px) {
+  .activity-category__grid--bungee {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-    .activities-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
+  .activity-category__grid--bungee {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .raft-ticket-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .activity-category__banner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .activity-category__banner-right {
+    align-items: flex-start;
+  }
 }
 
 @media (max-width: 560px) {
-    .activities-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
-    }
+  .activity-category__grid--bungee {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .raft-ticket {
+    grid-template-columns: 110px 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+
+  .raft-ticket__thumb-wrap {
+    width: 110px;
+    min-height: 88px;
+    grid-row: span 2;
+  }
+
+  .raft-ticket__thumb,
+  .raft-ticket__thumb--placeholder {
+    min-height: 88px;
+  }
+
+  .raft-ticket__action {
+    grid-column: 2;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .raft-ticket__price-block {
+    align-items: flex-start;
+  }
 }

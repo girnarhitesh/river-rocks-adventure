@@ -10,14 +10,20 @@ const ROUTE_META = {
   6: { startLabel: "Devprayag", endLabel: "NIM Beach" },
 };
 
-const RaftingRouteData = ActivitiesCardsData.map((activity) => {
-  const meta = ROUTE_META[activity.id] || ROUTE_META[1];
-  const routePoints = normalizeRoute(ROUTE_COORDINATES[activity.id] || ROUTE_COORDINATES[1]);
+const raftingItems =
+  ActivitiesCardsData.categories.find((category) => category.id === "rafting")?.items ?? [];
+
+const RaftingRouteData = raftingItems.map((activity, index) => {
+  const routeIndex = index + 1;
+  const meta = ROUTE_META[routeIndex] || ROUTE_META[1];
+  const routePoints = normalizeRoute(ROUTE_COORDINATES[routeIndex] || ROUTE_COORDINATES[1]);
 
   return {
     ...activity,
+    id: routeIndex,
+    distance: activity.meta,
     route: routePoints,
-    routeCoordinates: ROUTE_COORDINATES[activity.id] || ROUTE_COORDINATES[1],
+    routeCoordinates: ROUTE_COORDINATES[routeIndex] || ROUTE_COORDINATES[1],
     startLabel: meta.startLabel,
     endLabel: meta.endLabel,
     mapCenter: routePoints[0],

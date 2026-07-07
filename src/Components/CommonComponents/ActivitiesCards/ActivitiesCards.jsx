@@ -22,13 +22,14 @@ const ActivityCard = ({
   distance = "",
   image = "",
   imageAlt = "",
+  accent = "red",
   index = 0,
 }) => {
   const { openBookingModal } = useBookingModal();
 
   return (
     <motion.article
-      className="activity-card"
+      className={`activity-card activity-card--${accent}`}
       variants={itemVariants}
       whileHover={{ y: -5 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
