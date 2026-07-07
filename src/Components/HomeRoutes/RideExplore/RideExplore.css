@@ -1,8 +1,74 @@
-#ride-explore {
+.ride-explore {
   position: relative;
   overflow: hidden;
-  background: var(--color-bg);
+  background: linear-gradient(
+    165deg,
+    var(--color-bg) 0%,
+    var(--color-bg-subtle) 42%,
+    #fffdf3 100%
+  );
   z-index: 1;
+}
+
+.ride-explore__glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(40px);
+}
+
+.ride-explore__glow--red {
+  top: -60px;
+  left: -40px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, var(--color-red-soft) 0%, transparent 72%);
+}
+
+.ride-explore__glow--yellow {
+  right: -30px;
+  bottom: 10%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, var(--color-yellow-soft) 0%, transparent 70%);
+}
+
+.ride-explore__marquee {
+  position: absolute;
+  top: 18px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0.14;
+  pointer-events: none;
+  user-select: none;
+}
+
+.ride-explore__marquee-track {
+  display: flex;
+  width: max-content;
+  gap: 0;
+  white-space: nowrap;
+}
+
+.ride-explore__marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  gap: 28px;
+  padding-right: 28px;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--color-text);
+}
+
+.ride-explore__marquee-track i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brand-color);
+  flex-shrink: 0;
 }
 
 .ride-explore-wrap {
@@ -17,7 +83,7 @@
   font-size: clamp(5rem, 14vw, 11rem);
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: rgba(0, 0, 0, 0.04);
+  color: rgba(0, 0, 0, 0.035);
   white-space: nowrap;
   pointer-events: none;
   user-select: none;
@@ -27,9 +93,9 @@
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1.5fr 1.5fr;
+  grid-template-columns: minmax(280px, 1.05fr) minmax(300px, 0.95fr);
   align-items: center;
-  gap: clamp(24px, 5vw, 64px);
+  gap: clamp(28px, 5vw, 72px);
 }
 
 .ride-explore-copy {
@@ -37,7 +103,6 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
-  /* max-width: 520px; */
 }
 
 .ride-explore-accent {
@@ -72,41 +137,229 @@
   transform: translateY(-50%);
 }
 
+.ride-explore-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--accent-color);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
 .ride-explore-title {
   display: flex;
   flex-direction: column;
   gap: 4px;
   color: var(--color-text);
-  line-height: 1.05;
+  line-height: 1.08;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
 }
 
 .ride-explore-title.section-heading-accent::after {
   margin-top: 14px;
 }
 
-.ride-explore-title-light {
-  font-weight: 400;
-  letter-spacing: 0.18em;
-  text-transform: lowercase;
-}
-
-.ride-explore-copy p {
+.ride-explore-lead {
+  max-width: 540px;
   color: var(--color-text-secondary);
 }
 
+.ride-adventure-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 6px;
+}
+
+.ride-adventure-card {
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 16px;
+  padding: 14px 14px 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ride-adventure-card--red {
+  border-left: 3px solid var(--brand-color);
+}
+
+.ride-adventure-card--yellow {
+  border-left: 3px solid var(--accent-color);
+}
+
+.ride-adventure-card:hover {
+  box-shadow: 0 12px 30px var(--color-red-soft);
+}
+
+.ride-adventure-card__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.ride-adventure-card__num {
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--brand-color);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+}
+
+.ride-adventure-card--yellow .ride-adventure-card__num {
+  background: var(--accent-color);
+  color: var(--color-black);
+}
+
+.ride-adventure-card__head h3 {
+  font-size: 0.78rem;
+  line-height: 1.25;
+  margin: 0 0 4px;
+}
+
+.ride-adventure-card__badge {
+  display: inline-block;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.ride-adventure-card__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ride-adventure-card__list li {
+  position: relative;
+  padding-left: 14px;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+.ride-adventure-card__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--brand-color);
+}
+
+.ride-adventure-card--yellow .ride-adventure-card__list li::before {
+  background: var(--accent-color);
+}
+
+/* ─── Bungee portrait video ─────────────────────────────────────────── */
 .ride-explore-visual {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
-.ride-brush-stage {
+.ride-bungee-showcase {
   position: relative;
-  width: min(100%, 560px);
-  transform: rotate(-2.5deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: min(100%, 320px);
+  padding: 24px 16px;
 }
 
-.ride-brush-frame {
-  --bf-drop-shadow: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.08));
+.ride-bungee-showcase__frame {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 320px;
+  transform: rotate(2deg);
+  filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.14));
+}
+
+.ride-bungee-showcase__mask-shell {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1922 / 2000;
+  max-height: min(72vh, 560px);
+  -webkit-mask-image: var(--ride-video-mask);
+  mask-image: var(--ride-video-mask);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+}
+
+.ride-bungee-showcase__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+}
+
+.ride-bungee-showcase__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.ride-bungee-showcase__watch {
+  border: 0;
+  background: transparent;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}
+
+.ride-bungee-showcase__watch:hover {
+  color: var(--brand-color);
+}
+
+.ride-bungee-showcase__label {
+  position: relative;
+  z-index: 2;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 999px;
+  color: var(--color-black);
+  border: 1px solid var(--color-yellow-border);
+  background: linear-gradient(135deg, #fffef8 0%, #fff9d6 100%);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 @media (max-width: 900px) {
@@ -120,5 +373,25 @@
 
   .ride-explore-accent {
     display: none;
+  }
+
+  .ride-bungee-showcase {
+    width: min(100%, 280px);
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .ride-adventure-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .ride-explore__marquee {
+    top: 10px;
+    opacity: 0.1;
+  }
+
+  .ride-bungee-showcase__mask-shell {
+    max-height: min(65vh, 480px);
   }
 }
