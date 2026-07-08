@@ -330,6 +330,11 @@
   overflow: hidden;
 }
 
+.raft-ticket .activity-highlights__tag {
+  font-size: 0.58rem;
+  padding: 2px 7px;
+}
+
 .raft-ticket__action {
   display: flex;
   flex-direction: column;

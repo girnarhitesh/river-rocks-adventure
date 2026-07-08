@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useBookingModal } from "../BookingModal/BookingModalContext";
+import ActivityHighlights from "./ActivityHighlights";
 import "./ActivitiesCards.css";
 
 const cardEase = [0.22, 1, 0.36, 1];
@@ -16,7 +17,8 @@ const itemVariants = {
 
 const ActivityCard = ({
   title = "Activity",
-  description = "",
+  highlights = [],
+  jumpStyle,
   price = "Rs. 0 /-",
   priceLabel = "Per Person",
   distance = "",
@@ -69,8 +71,8 @@ const ActivityCard = ({
           </div>
         </div>
 
-        {description && (
-          <p className="activity-card__desc">{description}</p>
+        {highlights.length > 0 && (
+          <ActivityHighlights highlights={highlights} jumpStyle={jumpStyle} />
         )}
 
         <motion.button

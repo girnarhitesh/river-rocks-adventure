@@ -89,7 +89,8 @@ const ActivityCategory = ({ category, index }) => {
                 key={item.id}
                 index={itemIndex}
                 title={item.title}
-                description={item.description}
+                highlights={item.highlights}
+                jumpStyle={item.jumpStyle}
                 price={item.price}
                 priceLabel={item.priceLabel}
                 distance={item.meta}

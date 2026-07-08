@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import ActivityHighlights from "../../CommonComponents/ActivitiesCards/ActivityHighlights";
 import { useBookingModal } from "../../CommonComponents/BookingModal/BookingModalContext";
 
 const ticketVariants = {
@@ -33,7 +34,7 @@ const RaftingCompactCard = ({ item }) => {
           <h4 className="raft-ticket__title">{item.title}</h4>
           <span className="raft-ticket__distance">{item.meta}</span>
         </div>
-        <p className="raft-ticket__desc">{item.description}</p>
+        <ActivityHighlights highlights={item.highlights} jumpStyle={item.jumpStyle} />
       </div>
 
       <div className="raft-ticket__action">
