@@ -2,6 +2,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { BookingProvider } from './Components/CommonComponents/BookingModal/BookingModalContext'
 import ScrollToTop from './Components/CommonComponents/ScrollToTop/ScrollToTop'
+import StickySocialBar from './Components/CommonComponents/StickySocialBar/StickySocialBar'
 import HomePage from './pages/HomePage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsConditionsPage from './pages/TermsConditionsPage'
@@ -11,6 +12,7 @@ function App() {
     <BrowserRouter>
       <BookingProvider>
         <ScrollToTop />
+        <StickySocialBar />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

@@ -1,3 +1,5 @@
+import { SOCIAL_LINKS } from "../../../config/socialLinks";
+
 const FooterData = {
   brand: {
     logo: "/Images/River_and_rocks_logo.png",
@@ -30,38 +32,7 @@ const FooterData = {
     ],
     email: "salesriverrockholidays@gmail.com",
   },
-  social: [
-    {
-      label: "Facebook",
-      href: "https://www.facebook.com/RiverRocksadventure/",
-      icon: "facebook",
-    },
-    {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/river-and-rock-adventure-48816697",
-      icon: "linkedin",
-    },
-    {
-      label: "Instagram",
-      href: "https://www.instagram.com/river.and.rocks.adventure/",
-      icon: "instagram",
-    },
-    {
-      label: "TripAdvisor",
-      href: "https://www.tripadvisor.in/Attraction_Review-g580106-d8099009-Reviews-River_Rocks_Adventure-Rishikesh_Dehradun_District_Uttarakhand.html",
-      icon: "tripadvisor",
-    },
-    {
-      label: "YouTube",
-      href: "https://www.youtube.com/channel/UCJTquxggTSv0qA9tvSedUdA",
-      icon: "youtube",
-    },
-    {
-      label: "Tripoto",
-      href: "https://www.tripoto.com/profile/riverrocksadventure",
-      icon: "tripoto",
-    },
-  ],
+  social: SOCIAL_LINKS,
   seoText:
     "River & Rock Adventure offers the best river rafting in Rishikesh — from gentle Brahmpuri and Club House stretches to thrilling Shivpuri, Marine Drive, and Kaudiyala rapids on the Ganga. Book white water rafting Rishikesh packages near NIM Beach, Tapovan, and Ram Jhula with certified guides, life jackets, and safety kayaks. Whether you want a 9 km family rafting trip or a 70 km Devprayag expedition, we deliver safe, memorable Ganga rafting experiences in Rishikesh, Uttarakhand.",
   legal: [
@@ -73,7 +44,7 @@ const FooterData = {
     label: "Powered by",
     logo: "/Images/OkGhumoLogo.png",
     alt: "Ok Ghumo",
-    href: "https://okghumo.com",
+    href: "https://okghumo.in",
   },
 };
 

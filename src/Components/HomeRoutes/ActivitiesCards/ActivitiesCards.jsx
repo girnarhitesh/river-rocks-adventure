@@ -4,6 +4,7 @@ import ActivityCard from "../../CommonComponents/ActivitiesCards/ActivitiesCards
 import RaftingCompactCard from "./RaftingCompactCard";
 import ActivitiesCardsData from "./ActivitiesCardsData";
 import "./ActivitiesCards.css";
+import RaftingRouteExplorer from "../RaftingRouteExplorer/RaftingRouteExplorer";
 
 const gridVariants = {
   hidden: {},
@@ -58,7 +59,10 @@ const ActivityCategory = ({ category, index }) => {
       transition={{ duration: 0.5, delay: index * 0.08, ease: "easeOut" }}
     >
       {isRafting ? (
+        <>
         <RaftingCategory category={category} />
+        <RaftingRouteExplorer />
+        </>
       ) : (
         <>
           <header className="activity-category__banner">

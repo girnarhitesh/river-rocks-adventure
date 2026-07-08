@@ -10,7 +10,7 @@ const RaftingRouteExplorer = ({ data = RaftingRouteData }) => {
 
   return (
     <section id="rafting-routes">
-      <div className="MaxWidthContainer MarginAuto route-explorer-section">
+      <div className="route-explorer-section">
         <motion.div
           className="route-explorer-header"
           initial={{ opacity: 0, y: 20 }}

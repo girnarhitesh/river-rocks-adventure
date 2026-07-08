@@ -1,0 +1,64 @@
+.sticky-social {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1090;
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.sticky-social__list {
+  list-style: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.sticky-social__btn {
+  --social-size: 42px;
+  width: var(--social-size);
+  height: var(--social-size);
+  display: grid;
+  place-items: center;
+  color: var(--color-white);
+  background: var(--social-color, #333);
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: box-shadow 0.2s ease;
+}
+
+.sticky-social__btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.sticky-social__btn:hover {
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.22);
+  z-index: 2;
+}
+
+.sticky-social__btn--instagram {
+  background: linear-gradient(135deg,
+      #f09433 0%,
+      #e6683c 25%,
+      #dc2743 50%,
+      #cc2366 75%,
+      #bc1888 100%);
+}
+
+.sticky-social__list li:first-child .sticky-social__btn {
+  border-top-left-radius: 10px;
+}
+
+.sticky-social__list li:last-child .sticky-social__btn {
+  border-top-right-radius: 10px;
+}
+
+@media (max-width: 768px) {
+  .sticky-social {
+    display: none !important;
+  }
+}
