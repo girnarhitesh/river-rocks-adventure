@@ -27,9 +27,8 @@ const FooterData = {
   },
   quickLinks: [
     { label: "Home", href: "/" },
-    { label: "River Rafting", href: ACTIVITY_ROUTES.rafting },
-    { label: "Bungee Jump", href: ACTIVITY_ROUTES.bungee },
     { label: "Explore", href: "/#ride-explore" },
+    { label: "Adventure Packages", href: "/#ActivitiesCards" },
     { label: "About Us", href: "/#company-content" },
   ],
   raftingLinks: getActivityLinks("rafting"),

@@ -17,8 +17,16 @@ const columnVariants = {
   },
 };
 
-const FooterLink = ({ href, children }) =>
-  href.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>;
+const FooterLink = ({ href, children }) => {
+  const isExternal = href.startsWith("http");
+  const isHashLink = href.includes("#");
+
+  if (isExternal || isHashLink) {
+    return <a href={href}>{children}</a>;
+  }
+
+  return <Link to={href}>{children}</Link>;
+};
 
 const Footer = ({ data = FooterData }) => {
   const { openBookingModal } = useBookingModal();
