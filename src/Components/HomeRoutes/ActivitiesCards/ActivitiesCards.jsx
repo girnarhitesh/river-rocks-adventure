@@ -13,22 +13,30 @@ const gridVariants = {
   },
 };
 
-const RaftingCategory = ({ category }) => (
+const RaftingCategory = ({ category, hideCategoryBanner = false }) => (
   <>
-    <header className="activity-category__banner activity-category__banner--compact">
-      <div className="activity-category__banner-left">
-        <span className="activity-category__badge">{category.badge}</span>
-        <div>
-          <h3 id={`activity-category-${category.id}`}>{category.label}</h3>
-          <p>{category.tagline}</p>
+    {!hideCategoryBanner ? (
+      <header className="activity-category__banner activity-category__banner--compact">
+        <div className="activity-category__banner-left">
+          <span className="activity-category__badge">{category.badge}</span>
+          <div>
+            <h3 id={`activity-category-${category.id}`}>{category.label}</h3>
+            <p>{category.tagline}</p>
+          </div>
         </div>
-      </div>
-      <div className="raft-route-legend" aria-hidden="true">
+        <div className="raft-route-legend" aria-hidden="true">
+          <span>09 km</span>
+          <i />
+          <span>70 km</span>
+        </div>
+      </header>
+    ) : (
+      <div className="raft-route-legend raft-route-legend--standalone" aria-hidden="true">
         <span>09 km</span>
         <i />
         <span>70 km</span>
       </div>
-    </header>
+    )}
 
     <motion.div
       className="raft-ticket-grid"
@@ -44,7 +52,12 @@ const RaftingCategory = ({ category }) => (
   </>
 );
 
-const ActivityCategory = ({ category, index }) => {
+const ActivityCategory = ({
+  category,
+  index,
+  hideCategoryBanner = false,
+  showRouteExplorer = false,
+}) => {
   const isRafting = category.id === "rafting";
 
   return (
@@ -60,26 +73,28 @@ const ActivityCategory = ({ category, index }) => {
     >
       {isRafting ? (
         <>
-        <RaftingCategory category={category} />
-        <RaftingRouteExplorer />
+          <RaftingCategory category={category} hideCategoryBanner={hideCategoryBanner} />
+          {showRouteExplorer && <RaftingRouteExplorer />}
         </>
       ) : (
         <>
-          <header className="activity-category__banner">
-            <div className="activity-category__banner-left">
-              <span className="activity-category__badge">{category.badge}</span>
-              <div>
-                <h3 id={`activity-category-${category.id}`}>{category.label}</h3>
-                <p>{category.tagline}</p>
+          {!hideCategoryBanner && (
+            <header className="activity-category__banner">
+              <div className="activity-category__banner-left">
+                <span className="activity-category__badge">{category.badge}</span>
+                <div>
+                  <h3 id={`activity-category-${category.id}`}>{category.label}</h3>
+                  <p>{category.tagline}</p>
+                </div>
               </div>
-            </div>
-            <div className="activity-category__banner-right">
-              <span className="activity-category__meta-label">{category.metaLabel}</span>
-              <span className="activity-category__count">
-                {category.items.length} packages
-              </span>
-            </div>
-          </header>
+              <div className="activity-category__banner-right">
+                <span className="activity-category__meta-label">{category.metaLabel}</span>
+                <span className="activity-category__count">
+                  {category.items.length} packages
+                </span>
+              </div>
+            </header>
+          )}
 
           <motion.div
             className={`activity-category__grid activity-category__grid--${category.id}`}
@@ -109,25 +124,62 @@ const ActivityCategory = ({ category, index }) => {
   );
 };
 
-const ActivitiesCards = ({ data = ActivitiesCardsData }) => {
+const ActivitiesCards = ({
+  data = ActivitiesCardsData,
+  categoryId = null,
+  showRouteExplorer = false,
+  showSectionHeader = true,
+  hideCategoryBanner = false,
+  sectionId = "ActivitiesCards",
+  standalone = false,
+}) => {
+  const categories = categoryId
+    ? data.categories.filter((category) => category.id === categoryId)
+    : data.categories;
+
+  const sectionHeader = categoryId && categories[0]
+    ? {
+        tag: categories[0].badge,
+        title: categories[0].label,
+        subtitle: categories[0].tagline,
+      }
+    : {
+        tag: "Activities & Packages",
+        title: data.section.title,
+        subtitle: data.section.subtitle,
+      };
+
   return (
-    <section id="ActivitiesCards">
+    <section
+      id={sectionId}
+      className={`activities-section${standalone ? " activities-section--standalone" : ""}`}
+    >
       <div className="MaxWidthContainer MarginAuto SectionTopBottom">
-        <motion.div
-          className="activities-header"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <span className="activities-header__tag">Activities & Packages</span>
-          <h2 className="section-heading-accent">{data.section.title}</h2>
-          <p>{data.section.subtitle}</p>
-        </motion.div>
+        {showSectionHeader && (
+          <motion.div
+            className="activities-header"
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <span className="activities-header__tag">{sectionHeader.tag}</span>
+            <h2 className="section-heading-accent">{sectionHeader.title}</h2>
+            <p>{sectionHeader.subtitle}</p>
+          </motion.div>
+        )}
 
         <div className="activities-categories">
-          {data.categories.map((category, index) => (
-            <ActivityCategory key={category.id} category={category} index={index} />
+          {categories.map((category, index) => (
+            <ActivityCategory
+              key={category.id}
+              category={category}
+              index={index}
+              hideCategoryBanner={hideCategoryBanner}
+              showRouteExplorer={
+                category.id === "rafting" && (showRouteExplorer || categoryId === null)
+              }
+            />
           ))}
         </div>
       </div>

@@ -17,6 +17,9 @@ const columnVariants = {
   },
 };
 
+const FooterLink = ({ href, children }) =>
+  href.startsWith("/") ? <Link to={href}>{children}</Link> : <a href={href}>{children}</a>;
+
 const Footer = ({ data = FooterData }) => {
   const { openBookingModal } = useBookingModal();
   const year = new Date().getFullYear();
@@ -68,7 +71,7 @@ const Footer = ({ data = FooterData }) => {
             <ul className="site-footer__links">
               {data.quickLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href}>{link.label}</a>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
               <li>
@@ -83,12 +86,23 @@ const Footer = ({ data = FooterData }) => {
             </ul>
           </motion.div>
 
-          <motion.div className="site-footer__column" variants={columnVariants}>
+          <motion.div className="site-footer__column site-footer__column--activities" variants={columnVariants}>
             <h3 className="site-footer__heading">Rishikesh Rafting</h3>
             <ul className="site-footer__links">
               {data.raftingLinks.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href}>{link.label}</a>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div className="site-footer__column site-footer__column--activities" variants={columnVariants}>
+            <h3 className="site-footer__heading">Bungee Jump</h3>
+            <ul className="site-footer__links">
+              {data.bungeeLinks.map((link) => (
+                <li key={link.label}>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
                 </li>
               ))}
             </ul>
@@ -124,7 +138,7 @@ const Footer = ({ data = FooterData }) => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Book Rafting Now
+              Book Adventure Now
             </motion.button>
           </motion.div>
         </motion.div>

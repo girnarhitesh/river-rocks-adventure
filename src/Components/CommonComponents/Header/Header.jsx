@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import HeaderData from "./HeaderData";
 import { useBookingModal } from "../BookingModal/BookingModalContext";
@@ -46,7 +47,7 @@ const Header = ({ data = HeaderData }) => {
         }}
         transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <a href={data.logo.href} className="site-header__logo-link" aria-label={data.logo.alt}>
+        <Link to={data.logo.href} className="site-header__logo-link" aria-label={data.logo.alt}>
           <motion.img
             src={data.logo.src}
             alt={data.logo.alt}
@@ -57,7 +58,24 @@ const Header = ({ data = HeaderData }) => {
             transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
             draggable={false}
           />
-        </a>
+        </Link>
+
+        <nav className="site-header__nav" aria-label="Main navigation">
+          <ul className="site-header__nav-list">
+            {data.navigation.map((item) => (
+              <li key={item.href}>
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    `site-header__nav-link${isActive ? " site-header__nav-link--active" : ""}`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <motion.button
           type="button"

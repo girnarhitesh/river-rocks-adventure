@@ -1,9 +1,11 @@
 /* ─── Section Wrapper ───────────────────────────────────────────────── */
+.activities-section,
 #ActivitiesCards {
   position: relative;
   overflow: hidden;
 }
 
+.activities-section::before,
 #ActivitiesCards::before {
   content: "";
   position: absolute;
@@ -16,6 +18,7 @@
   z-index: 0;
 }
 
+.activities-section::after,
 #ActivitiesCards::after {
   content: "";
   position: absolute;
@@ -31,9 +34,18 @@
   z-index: 1;
 }
 
+.activities-section > *,
 #ActivitiesCards > * {
   position: relative;
   z-index: 2;
+}
+
+.activities-section--standalone .SectionTopBottom {
+  padding-top: 32px;
+}
+
+.raft-route-legend--standalone {
+  margin-bottom: 16px;
 }
 
 /* ─── Section Header ────────────────────────────────────────────────── */

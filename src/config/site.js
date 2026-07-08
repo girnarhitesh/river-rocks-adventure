@@ -48,9 +48,17 @@ export const SOCIAL_PROFILES = [
   "https://www.tripadvisor.in/Attraction_Review-g580106-d8099009-Reviews-River_Rocks_Adventure-Rishikesh_Dehradun_District_Uttarakhand.html",
 ];
 
+/** Dedicated activity landing pages */
+export const ACTIVITY_ROUTES = {
+  rafting: "/river-rafting-rishikesh",
+  bungee: "/bungee-jumping-rishikesh",
+};
+
 /** Routes included in sitemap.xml */
 export const SITEMAP_ROUTES = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: ACTIVITY_ROUTES.rafting, changefreq: "weekly", priority: "0.9" },
+  { path: ACTIVITY_ROUTES.bungee, changefreq: "weekly", priority: "0.9" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },
 ];
@@ -75,6 +83,22 @@ export const PAGE_SEO = {
       "Terms and conditions for booking river rafting and adventure experiences with River & Rock Adventure in Rishikesh, Uttarakhand.",
     keywords: "Terms and Conditions, River & Rock Adventure, Rafting Booking Terms",
     path: "/terms-and-conditions",
+  },
+  rafting: {
+    title: `River Rafting Packages in Rishikesh | ${SITE_NAME}`,
+    description:
+      "Book Ganga river rafting in Rishikesh — Club House, Brahmpuri, Shivpuri, Marine Drive, Kaudiyala, and Devprayag packages with certified guides and safety gear.",
+    keywords:
+      "River Rafting Rishikesh, Ganga Rafting Packages, Shivpuri Rafting, Marine Drive Rafting, Kaudiyala Rafting, Devprayag Expedition",
+    path: ACTIVITY_ROUTES.rafting,
+  },
+  bungee: {
+    title: `Bungee Jumping in Rishikesh | ${SITE_NAME}`,
+    description:
+      "Book Himalayan bungee jumps in Rishikesh — 117m, 111m, 109m, and 85m jumps with DSLR video. Normal and freestyle jump packages with River & Rock Adventure.",
+    keywords:
+      "Bungee Jumping Rishikesh, Himalayan Bungee, Freestyle Bungee Jump, 117m Bungee Rishikesh, Adventure Jump Packages",
+    path: ACTIVITY_ROUTES.bungee,
   },
 };
 

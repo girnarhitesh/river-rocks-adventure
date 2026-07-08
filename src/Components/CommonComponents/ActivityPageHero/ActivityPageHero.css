@@ -1,0 +1,114 @@
+.activity-page-hero {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(28px, 5vw, 44px) 0 clamp(24px, 4vw, 36px);
+}
+
+.activity-page-hero--red {
+  background-image: url("/Images/BackgroundImageActivites.jpg");
+}
+
+.activity-page-hero--yellow {
+  background-image: url("/Images/BungeeActivityImages/Himalayan_Bungee_117.webp");
+}
+
+.activity-page-hero {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.activity-page-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(255, 255, 255, 0.88) 55%,
+    rgba(255, 255, 255, 0.78) 100%
+  );
+  pointer-events: none;
+}
+
+.activity-page-hero--red .activity-page-hero__overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.97) 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0.82) 100%
+  );
+}
+
+.activity-page-hero__inner {
+  position: relative;
+  z-index: 1;
+  /* max-width: 720px; */
+}
+
+.activity-page-hero__back {
+  display: inline-flex;
+  align-items: center;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  margin-bottom: 18px;
+  transition: color 0.2s ease;
+}
+
+.activity-page-hero__back:hover {
+  color: var(--brand-color);
+}
+
+.activity-page-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.activity-page-hero__tag {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--accent-color);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+.activity-page-hero--red .activity-page-hero__tag {
+  background: var(--brand-color);
+  color: var(--color-white);
+}
+
+.activity-page-hero__content h1 {
+  font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--color-text);
+}
+
+.activity-page-hero__content h1.section-heading-accent::after {
+  width: 48px;
+}
+
+.activity-page-hero__content p {
+  font-size: clamp(0.92rem, 1.8vw, 1rem);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin: 0;
+  max-width: 560px;
+}
+
+@media (max-width: 560px) {
+  .activity-page-hero {
+    padding: 22px 0 20px;
+  }
+
+  .activity-page-hero__back {
+    font-size: 0.74rem;
+    margin-bottom: 14px;
+  }
+}
