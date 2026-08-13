@@ -106,6 +106,10 @@
   border-left: 4px solid var(--accent-color);
 }
 
+.activity-category--teal {
+  border-left: 4px solid #0f766e;
+}
+
 .activity-category__banner {
   display: flex;
   align-items: flex-start;
@@ -142,6 +146,11 @@
 .activity-category--yellow .activity-category__badge {
   background: var(--accent-color);
   color: var(--color-black);
+}
+
+.activity-category--teal .activity-category__badge {
+  background: #0f766e;
+  color: var(--color-white);
 }
 
 .activity-category__banner-left h3 {
@@ -190,6 +199,10 @@
 
 .activity-category__grid--bungee {
   grid-template-columns: repeat(4, 1fr);
+}
+
+.activity-category__grid--camping {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 /* ─── Compact rafting tickets ───────────────────────────────────────── */
@@ -402,13 +415,15 @@
 }
 
 @media (max-width: 1100px) {
-  .activity-category__grid--bungee {
+  .activity-category__grid--bungee,
+  .activity-category__grid--camping {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 900px) {
-  .activity-category__grid--bungee {
+  .activity-category__grid--bungee,
+  .activity-category__grid--camping {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
@@ -428,7 +443,8 @@
 }
 
 @media (max-width: 560px) {
-  .activity-category__grid--bungee {
+  .activity-category__grid--bungee,
+  .activity-category__grid--camping {
     grid-template-columns: 1fr;
     gap: 14px;
   }

@@ -15,6 +15,10 @@ const HeaderData = {
       label: "Bungee",
       href: ACTIVITY_ROUTES.bungee,
     },
+    {
+      label: "Camping",
+      href: ACTIVITY_ROUTES.camping,
+    },
   ],
   cta: {
     label: "Book Now",

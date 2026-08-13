@@ -10,6 +10,7 @@ import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
 import TermsConditionsPage from './pages/TermsConditionsPage'
 import RaftingPackagesPage from './pages/RaftingPackagesPage'
 import BungeePackagesPage from './pages/BungeePackagesPage'
+import CampingPackagesPage from './pages/CampingPackagesPage'
 import { ACTIVITY_ROUTES } from './config/site'
 
 function AppRoutes() {
@@ -39,6 +40,14 @@ function AppRoutes() {
           element={
             <PageTransition>
               <BungeePackagesPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path={ACTIVITY_ROUTES.camping}
+          element={
+            <PageTransition>
+              <CampingPackagesPage />
             </PageTransition>
           }
         />

@@ -116,6 +116,17 @@ const Footer = ({ data = FooterData }) => {
             </ul>
           </motion.div>
 
+          <motion.div className="site-footer__column site-footer__column--activities" variants={columnVariants}>
+            <h3 className="site-footer__heading">Camps & Cottages</h3>
+            <ul className="site-footer__links">
+              {data.campingLinks.map((link) => (
+                <li key={link.label}>
+                  <FooterLink href={link.href}>{link.label}</FooterLink>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
           <motion.div className="site-footer__column site-footer__column--contact" variants={columnVariants}>
             <h3 className="site-footer__heading">Contact</h3>
             <ul className="site-footer__contact">

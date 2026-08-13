@@ -17,8 +17,8 @@
 
 .site-footer__grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.75fr 1fr 1fr 1fr;
-  gap: clamp(20px, 3vw, 32px);
+  grid-template-columns: 1.15fr 0.7fr repeat(3, 0.85fr) 1fr;
+  gap: clamp(18px, 2.5vw, 28px);
 }
 
 .site-footer__brand {
@@ -305,7 +305,7 @@
   display: block;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .site-footer__grid {
     grid-template-columns: repeat(2, 1fr);
   }

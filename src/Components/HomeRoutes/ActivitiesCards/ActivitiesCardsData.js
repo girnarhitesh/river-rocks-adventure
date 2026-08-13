@@ -1,8 +1,10 @@
+import CampingPackagesData from "../CampingPackages/CampingPackagesData";
+
 const ActivitiesCardsData = {
   section: {
     title: "Our Adventure Packages",
     subtitle:
-      "River & Rock Adventure offers Ganga rafting routes and Rishikesh bungee experiences — pick your thrill, book with confidence.",
+      "River & Rock Adventure offers Ganga rafting, Rishikesh bungee jumps, and riverside camps & cottages — pick your thrill, book with confidence.",
   },
   categories: [
     {
@@ -119,6 +121,7 @@ const ActivitiesCardsData = {
         },
       ],
     },
+    CampingPackagesData.category,
   ],
 };
 

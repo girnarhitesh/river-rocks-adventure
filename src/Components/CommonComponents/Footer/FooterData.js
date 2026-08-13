@@ -7,6 +7,7 @@ const ACTIVITIES_HREF = "#ActivitiesCards";
 const ACTIVITY_PAGE_ROUTES = {
   rafting: ACTIVITY_ROUTES.rafting,
   bungee: ACTIVITY_ROUTES.bungee,
+  camping: ACTIVITY_ROUTES.camping,
 };
 
 const getActivityLinks = (categoryId) => {
@@ -23,16 +24,18 @@ const FooterData = {
     alt: "River & Rock Adventure — Rishikesh Rafting",
     tagline: "Adventure Begins on the Ganga",
     description:
-      "Certified river rafting and bungee jumps in Rishikesh with expert guides, premium safety gear, and unforgettable adventure experiences.",
+      "Certified river rafting, bungee jumps, and riverside camps & cottages in Rishikesh with expert hosts, safety gear, and unforgettable adventure stays.",
   },
   quickLinks: [
     { label: "Home", href: "/" },
     { label: "Explore", href: "/#ride-explore" },
     { label: "Adventure Packages", href: "/#ActivitiesCards" },
+    { label: "Camping Stay", href: ACTIVITY_ROUTES.camping },
     { label: "About Us", href: "/#company-content" },
   ],
   raftingLinks: getActivityLinks("rafting"),
   bungeeLinks: getActivityLinks("bungee"),
+  campingLinks: getActivityLinks("camping"),
   contact: {
     address:
       "Kailash Gate, Muni ki Reti, Near Union Bank, Rishikesh, T.G. (Uttarakhand)-249137",
@@ -44,7 +47,7 @@ const FooterData = {
   },
   social: SOCIAL_LINKS,
   seoText:
-    "River & Rock Adventure offers the best river rafting in Rishikesh — from gentle Brahmpuri and Club House stretches to thrilling Shivpuri, Marine Drive, and Kaudiyala rapids on the Ganga — plus Himalayan bungee jumps up to 117m with DSLR video. Book white water rafting Rishikesh packages near NIM Beach, Tapovan, and Ram Jhula with certified guides, life jackets, and safety kayaks. Whether you want a 9 km family rafting trip, a 70 km Devprayag expedition, or a freestyle bungee jump, we deliver safe, memorable adventure experiences in Rishikesh, Uttarakhand.",
+    "River & Rock Adventure offers the best river rafting in Rishikesh — from gentle Brahmpuri and Club House stretches to thrilling Shivpuri, Marine Drive, and Kaudiyala rapids on the Ganga — plus Himalayan bungee jumps up to 117m with DSLR video, and riverside AC luxury & family cottages with buffet meals, bonfire, and river pool access. Book white water rafting, bungee, and camping stays near NIM Beach, Tapovan, and Ram Jhula with certified guides and safety gear in Rishikesh, Uttarakhand.",
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },

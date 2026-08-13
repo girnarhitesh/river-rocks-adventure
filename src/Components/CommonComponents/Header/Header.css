@@ -117,9 +117,14 @@
   background: var(--brand-color);
 }
 
-.site-header__nav-list li:last-child .site-header__nav-link--active::after,
-.site-header__nav-list li:last-child .site-header__nav-link:hover::after {
+.site-header__nav-list li:nth-child(2) .site-header__nav-link--active::after,
+.site-header__nav-list li:nth-child(2) .site-header__nav-link:hover::after {
   background: var(--accent-color);
+}
+
+.site-header__nav-list li:nth-child(3) .site-header__nav-link--active::after,
+.site-header__nav-list li:nth-child(3) .site-header__nav-link:hover::after {
+  background: #0f766e;
 }
 
 .site-header__cta {

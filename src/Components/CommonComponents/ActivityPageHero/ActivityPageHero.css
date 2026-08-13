@@ -12,6 +12,10 @@
   background-image: url("/Images/BungeeActivityImages/Himalayan_Bungee_117.webp");
 }
 
+.activity-page-hero--teal {
+  background-image: url("/Images/IllustrationImages/BeachTopViewImage.png");
+}
+
 .activity-page-hero {
   background-size: cover;
   background-position: center;
@@ -81,6 +85,15 @@
 .activity-page-hero--red .activity-page-hero__tag {
   background: var(--brand-color);
   color: var(--color-white);
+}
+
+.activity-page-hero--teal .activity-page-hero__tag {
+  background: #0f766e;
+  color: var(--color-white);
+}
+
+.activity-page-hero--teal .activity-page-hero__content h1.section-heading-accent::after {
+  background: #0f766e;
 }
 
 .activity-page-hero__content h1 {

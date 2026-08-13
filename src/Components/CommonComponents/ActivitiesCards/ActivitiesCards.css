@@ -58,12 +58,20 @@
   background: linear-gradient(90deg, var(--accent-color) 0%, var(--brand-color) 100%);
 }
 
+.activity-card--teal .activity-card__accent {
+  background: linear-gradient(90deg, #0f766e 0%, var(--accent-color) 100%);
+}
+
 .activity-card--red {
   border-top: 2px solid var(--brand-color);
 }
 
 .activity-card--yellow {
   border-top: 2px solid var(--accent-color);
+}
+
+.activity-card--teal {
+  border-top: 2px solid #0f766e;
 }
 
 .activity-card--red .activity-card__price {
@@ -74,11 +82,22 @@
   color: var(--color-black);
 }
 
+.activity-card--teal .activity-card__price {
+  color: #0f766e;
+}
+
 .activity-card--yellow:hover .activity-card__book-btn,
 .activity-card--yellow .activity-card__book-btn:hover {
   background: var(--accent-color);
   color: var(--color-black);
   border-color: var(--accent-color);
+}
+
+.activity-card--teal:hover .activity-card__book-btn,
+.activity-card--teal .activity-card__book-btn:hover {
+  background: #0f766e;
+  color: var(--color-white);
+  border-color: #0f766e;
 }
 
 .activity-card__distance {

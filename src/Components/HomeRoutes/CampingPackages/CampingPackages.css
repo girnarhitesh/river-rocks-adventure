@@ -1,0 +1,209 @@
+.camping-info {
+  position: relative;
+  padding: 0 0 clamp(36px, 5vw, 56px);
+  background: var(--color-bg);
+}
+
+.camping-info__tag {
+  display: inline-flex;
+  width: fit-content;
+  font-size: 0.58rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-black);
+  background: var(--accent-color);
+  padding: 5px 12px;
+  border-radius: 999px;
+  margin-bottom: 10px;
+}
+
+.camping-info__includes {
+  margin-bottom: clamp(24px, 4vw, 36px);
+  padding: clamp(18px, 3vw, 24px);
+  border: 1px solid var(--color-border-medium);
+  border-left: 4px solid #0f766e;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.camping-info__includes h2 {
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  margin: 0 0 16px;
+}
+
+.camping-info__includes h2.section-heading-accent::after {
+  width: 42px;
+  background: #0f766e;
+}
+
+.camping-info__includes-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 16px;
+  margin: 0;
+  padding: 0;
+}
+
+.camping-info__includes-list li {
+  position: relative;
+  padding-left: 18px;
+  font-family: "Questrial", sans-serif;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--color-text-secondary);
+}
+
+.camping-info__includes-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.45em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #0f766e;
+}
+
+.camping-info__policies {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.camping-info__card {
+  padding: clamp(16px, 2.5vw, 20px);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 14px;
+  background: var(--color-bg-subtle);
+}
+
+.camping-info__card h3 {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--color-text);
+}
+
+.camping-info__card ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.camping-info__card li {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  padding-left: 14px;
+  position: relative;
+}
+
+.camping-info__card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #0f766e;
+}
+
+.camping-info__note {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+  padding: 12px 16px;
+  border: 1px dashed rgba(15, 118, 110, 0.35);
+  border-radius: 12px;
+  background: rgba(15, 118, 110, 0.05);
+  margin-bottom: 20px;
+}
+
+.camping-info__cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: clamp(18px, 3vw, 24px);
+  border: 1px solid var(--color-border-medium);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(15, 118, 110, 0.08) 0%,
+    rgba(242, 217, 10, 0.12) 100%
+  );
+}
+
+.camping-info__cta-text {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  margin: 0 0 10px;
+}
+
+.camping-info__phones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+
+.camping-info__phones a {
+  font-family: "Questrial", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.camping-info__phones a:hover {
+  color: #0f766e;
+}
+
+.camping-info__book {
+  flex-shrink: 0;
+  border: 1px solid #0f766e;
+  background: #0f766e;
+  color: var(--color-white);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.camping-info__book:hover {
+  background: #0c5f59;
+  border-color: #0c5f59;
+}
+
+@media (max-width: 960px) {
+  .camping-info__includes-list,
+  .camping-info__policies {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .camping-info__includes-list,
+  .camping-info__policies {
+    grid-template-columns: 1fr;
+  }
+
+  .camping-info__cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .camping-info__book {
+    width: 100%;
+  }
+}

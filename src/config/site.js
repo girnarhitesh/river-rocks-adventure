@@ -52,6 +52,7 @@ export const SOCIAL_PROFILES = [
 export const ACTIVITY_ROUTES = {
   rafting: "/river-rafting-rishikesh",
   bungee: "/bungee-jumping-rishikesh",
+  camping: "/river-side-camps-rishikesh",
 };
 
 /** Routes included in sitemap.xml */
@@ -59,6 +60,7 @@ export const SITEMAP_ROUTES = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
   { path: ACTIVITY_ROUTES.rafting, changefreq: "weekly", priority: "0.9" },
   { path: ACTIVITY_ROUTES.bungee, changefreq: "weekly", priority: "0.9" },
+  { path: ACTIVITY_ROUTES.camping, changefreq: "weekly", priority: "0.9" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },
 ];
@@ -99,6 +101,14 @@ export const PAGE_SEO = {
     keywords:
       "Bungee Jumping Rishikesh, Himalayan Bungee, Freestyle Bungee Jump, 117m Bungee Rishikesh, Adventure Jump Packages",
     path: ACTIVITY_ROUTES.bungee,
+  },
+  camping: {
+    title: `River Side Camps & Cottages in Rishikesh | ${SITE_NAME}`,
+    description:
+      "Book riverside AC luxury and family cottages in Rishikesh — stay with buffet meals, river pool, bonfire, music, and outdoor games. Double, triple, and family sharing packages.",
+    keywords:
+      "River Side Camp Rishikesh, AC Cottage Rishikesh, Camping Rishikesh, Family Cottage Rishikesh, Riverside Stay Rishikesh",
+    path: ACTIVITY_ROUTES.camping,
   },
 };
 
