@@ -30,7 +30,7 @@ export const THEME_COLOR = "#0F766E";
 
 export const CONTACT = {
   email: "salesriverrockholidays@gmail.com",
-  phone: "+91-135-2442307",
+  phone: "+91-9760931307",
   address: {
     streetAddress: "Kailash Gate, Muni ki Reti, Near Union Bank",
     addressLocality: "Rishikesh",

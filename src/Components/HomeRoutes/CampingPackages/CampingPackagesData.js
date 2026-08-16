@@ -17,7 +17,7 @@ const CampingPackagesData = {
         price: "Rs. 4,000 /-",
         priceLabel: "Per Person",
         meta: "2 Persons",
-        image: "/Images/IllustrationImages/BeachTopViewImage.png",
+        image: "/Images/campingImages/1.jpeg",
         highlights: ["All Meals Buffet", "River Pool Access", "Bonfire & Music"],
       },
       {
@@ -26,7 +26,7 @@ const CampingPackagesData = {
         price: "Rs. 3,500 /-",
         priceLabel: "Per Person",
         meta: "3 Persons",
-        image: "/Images/IllustrationImages/ActivitiesBackground.jpg",
+        image: "/Images/campingImages/2.jpeg",
         highlights: ["All Meals Buffet", "River Stream Access", "Lawn & Outdoor Games"],
       },
       {
@@ -35,7 +35,7 @@ const CampingPackagesData = {
         price: "Rs. 3,000 /-",
         priceLabel: "Per Person",
         meta: "4–6 Persons",
-        image: "/Images/BackgroundImageActivites.jpg",
+        image: "/Images/campingImages/3.jpeg",
         highlights: ["Family Friendly", "All Meals Buffet", "Free Parking"],
       },
     ],
@@ -82,7 +82,6 @@ const CampingPackagesData = {
   note: "Rates are not applicable on long weekends & festival dates.",
   contactPhones: [
     { display: "+91-9760931307", href: "+919760931307" },
-    { display: "+91-9451771833", href: "+919451771833" },
   ],
   tagline: "Enjoy the River. Feel the Nature. Make Memories!",
 };

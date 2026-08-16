@@ -31,8 +31,14 @@ const WhatsAppFloat = ({ data = WhatsAppFloatData }) => {
     >
       <motion.span
         className="whatsapp-float__pulse"
-        animate={{ scale: [1, 1.5], opacity: [0.45, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeOut" }}
+        animate={{ scale: [1, 1.65], opacity: [0.5, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut" }}
+        aria-hidden="true"
+      />
+      <motion.span
+        className="whatsapp-float__pulse whatsapp-float__pulse--delayed"
+        animate={{ scale: [1, 1.65], opacity: [0.4, 0] }}
+        transition={{ duration: 1.8, repeat: Infinity, ease: "easeOut", delay: 0.7 }}
         aria-hidden="true"
       />
       <span className="whatsapp-float__icon">

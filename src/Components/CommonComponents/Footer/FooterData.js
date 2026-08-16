@@ -40,8 +40,7 @@ const FooterData = {
     address:
       "Kailash Gate, Muni ki Reti, Near Union Bank, Rishikesh, T.G. (Uttarakhand)-249137",
     phones: [
-      { display: "+91-135-2442307", href: "+911352442307" },
-      { display: "9456177183", href: "+919456177183" },
+      { display: "+91-9760931307", href: "+919760931307" },
     ],
     email: "salesriverrockholidays@gmail.com",
   },

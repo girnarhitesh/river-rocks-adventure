@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import HeaderData from "./HeaderData";
 import { useBookingModal } from "../BookingModal/BookingModalContext";
 import "./Header.css";
@@ -21,7 +21,9 @@ const useIsMobile = (breakpoint = 768) => {
 
 const Header = ({ data = HeaderData }) => {
   const { scrollY } = useScroll();
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const { openBookingModal } = useBookingModal();
   const isMobile = useIsMobile();
 
@@ -29,9 +31,33 @@ const Header = ({ data = HeaderData }) => {
     setScrolled(latest > data.scrollThreshold);
   });
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (!isMobile) setMenuOpen(false);
+  }, [isMobile]);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const closeMenu = () => setMenuOpen(false);
+
+  const handleBookNow = () => {
+    closeMenu();
+    openBookingModal();
+  };
+
   return (
     <motion.header
-      className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}
+      className={`site-header ${scrolled ? "site-header--scrolled" : ""} ${
+        menuOpen ? "site-header--menu-open" : ""
+      }`}
       initial={false}
       animate={{
         y: 0,
@@ -47,7 +73,12 @@ const Header = ({ data = HeaderData }) => {
         }}
         transition={{ duration: 0.35, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
-        <Link to={data.logo.href} className="site-header__logo-link" aria-label={data.logo.alt}>
+        <Link
+          to={data.logo.href}
+          className="site-header__logo-link"
+          aria-label={data.logo.alt}
+          onClick={closeMenu}
+        >
           <motion.img
             src={data.logo.src}
             alt={data.logo.alt}
@@ -60,7 +91,7 @@ const Header = ({ data = HeaderData }) => {
           />
         </Link>
 
-        <nav className="site-header__nav" aria-label="Main navigation">
+        <nav className="site-header__nav site-header__nav--desktop" aria-label="Main navigation">
           <ul className="site-header__nav-list">
             {data.navigation.map((item) => (
               <li key={item.href}>
@@ -79,11 +110,11 @@ const Header = ({ data = HeaderData }) => {
 
         <motion.button
           type="button"
-          className="site-header__cta"
+          className="site-header__cta site-header__cta--desktop"
           onClick={() => openBookingModal()}
           animate={{
-            paddingBlock: scrolled ? (isMobile ? 7 : 9) : isMobile ? 9 : 12,
-            paddingInline: scrolled ? (isMobile ? 12 : 20) : isMobile ? 14 : 26,
+            paddingBlock: scrolled ? 9 : 12,
+            paddingInline: scrolled ? 20 : 26,
             scale: scrolled ? 0.96 : 1,
           }}
           whileHover={{ scale: scrolled ? 1 : 1.04 }}
@@ -92,7 +123,76 @@ const Header = ({ data = HeaderData }) => {
         >
           {data.cta.label}
         </motion.button>
+
+        <button
+          type="button"
+          className={`site-header__menu-btn${menuOpen ? " site-header__menu-btn--open" : ""}`}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-expanded={menuOpen}
+          aria-controls="mobile-nav"
+          onClick={() => setMenuOpen((open) => !open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </motion.div>
+
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            <motion.div
+              className="site-header__backdrop"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.22 }}
+              onClick={closeMenu}
+            />
+            <motion.nav
+              id="mobile-nav"
+              className="site-header__drawer"
+              aria-label="Mobile navigation"
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ul className="site-header__drawer-list">
+                <li>
+                  <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) =>
+                      `site-header__drawer-link${isActive ? " site-header__drawer-link--active" : ""}`
+                    }
+                    onClick={closeMenu}
+                  >
+                    Home
+                  </NavLink>
+                </li>
+                {data.navigation.map((item) => (
+                  <li key={item.href}>
+                    <NavLink
+                      to={item.href}
+                      className={({ isActive }) =>
+                        `site-header__drawer-link${isActive ? " site-header__drawer-link--active" : ""}`
+                      }
+                      onClick={closeMenu}
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+
+              <button type="button" className="site-header__drawer-cta" onClick={handleBookNow}>
+                {data.cta.label}
+              </button>
+            </motion.nav>
+          </>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };

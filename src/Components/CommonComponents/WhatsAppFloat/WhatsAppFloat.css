@@ -31,6 +31,10 @@
   pointer-events: none;
 }
 
+.whatsapp-float__pulse--delayed {
+  background: #25d366;
+}
+
 .whatsapp-float__icon {
   position: relative;
   z-index: 1;
