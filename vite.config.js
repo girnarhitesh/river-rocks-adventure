@@ -7,4 +7,7 @@ export default defineConfig({
   optimizeDeps: {
     include: ['maplibre-gl', 'react-map-gl/maplibre'],
   },
+  ssr: {
+    noExternal: ['react-router-dom', 'react-router', 'framer-motion'],
+  },
 })

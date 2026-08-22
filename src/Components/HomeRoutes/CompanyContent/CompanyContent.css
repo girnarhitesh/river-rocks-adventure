@@ -274,6 +274,16 @@
   margin-bottom: 0;
 }
 
+.company-content__text a {
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+}
+
+.company-content__text a:hover {
+  color: inherit;
+}
+
 /* ─── Why Choose Us — colorful brand grid ──────────────────────────── */
 .why-choose {
   position: relative;

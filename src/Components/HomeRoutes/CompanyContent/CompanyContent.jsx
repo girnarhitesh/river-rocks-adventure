@@ -10,15 +10,31 @@ const fadeUp = {
   transition: { duration: 0.5, ease: "easeOut" },
 };
 
-const TextBlock = ({ tag, title, paragraphs }) => (
-  <div className="company-content__text">
-    {tag && <span className="company-content__tag">{tag}</span>}
-    <h2>{title}</h2>
-    {paragraphs.map((text) => (
-      <p key={text.slice(0, 32)}>{text}</p>
-    ))}
-  </div>
-);
+const TextBlock = ({ tag, title, paragraphs }) => {
+  const renderParagraph = (item, index) => {
+    if (typeof item === "string") {
+      return <p key={item.slice(0, 32) || index}>{item}</p>;
+    }
+
+    return (
+      <p key={`${item.link.href}-${index}`}>
+        {item.before}
+        <a href={item.link.href} target="_blank" rel="noopener noreferrer">
+          {item.link.label}
+        </a>
+        {item.after}
+      </p>
+    );
+  };
+
+  return (
+    <div className="company-content__text">
+      {tag && <span className="company-content__tag">{tag}</span>}
+      <h2>{title}</h2>
+      {paragraphs.map(renderParagraph)}
+    </div>
+  );
+};
 
 const AboutCombined = ({ data, whoWeAre, whyUs }) => {
   const [activeTab, setActiveTab] = useState("who");

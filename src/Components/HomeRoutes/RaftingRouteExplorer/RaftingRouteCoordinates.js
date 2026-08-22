@@ -12,7 +12,7 @@ export const WAYPOINTS = {
   shivpuri: { lat: 30.136545764559607, lng: 78.3942561822744 },
   /** Approximate — update when exact coords available */
   ramJhula: { lat: 30.1298, lng: 78.3348 },
-  marineDrive: { lat: 30.1378, lng: 78.3992 },
+  marineDrive: { lat: 30.089355600590505, lng: 78.43416439532099 },
   kaudiyala: { lat: 30.061, lng: 78.451 },
   devprayag: { lat: 30.1465, lng: 78.598 },
 };

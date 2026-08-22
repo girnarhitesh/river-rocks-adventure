@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { usePrerender } from "../../../context/PrerenderContext";
 import WhatsAppFloatData from "./WhatsAppFloatData";
 import "./WhatsAppFloat.css";
 
@@ -13,7 +14,26 @@ const WhatsAppIcon = () => (
 );
 
 const WhatsAppFloat = ({ data = WhatsAppFloatData }) => {
+  const isPrerender = usePrerender();
   const href = `https://wa.me/${data.phone}?text=${encodeURIComponent(data.defaultMessage)}`;
+
+  if (isPrerender) {
+    return (
+      <a
+        href={href}
+        className="whatsapp-float"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={data.label}
+        title={data.label}
+      >
+        <span className="whatsapp-float__icon">
+          <WhatsAppIcon />
+        </span>
+        <span className="whatsapp-float__tooltip">{data.label}</span>
+      </a>
+    );
+  }
 
   return (
     <motion.a

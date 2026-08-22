@@ -1,3 +1,5 @@
+import { BUCKETLISTT_URL } from "../../../config/partnerLinks";
+
 const CompanyContentData = {
   aboutCombined: {
     id: "about-story",
@@ -44,7 +46,13 @@ const CompanyContentData = {
     paragraphs: [
       "India is a vast country with diverse cultures, religions, languages and terrain. There are 16 official languages and more than 1500 dialects — every region has different culture and rituals, a different way of life, and people who even look different. A north Indian can feel as unfamiliar in South India as any first-time visitor, and vice versa.",
       "India offers great mountains, beaches, forests, deserts and everything one can imagine. This complexity and diversity at times confuses not only the first-time traveler but even the seasoned traveler — where to start, where to go first, and for how many days?",
-      "That is where we come in. Complete understanding of the product, long experience and a deep knowledge bank comes handy while we plan the trip for you. Every member of our team brings years of experience in their respective fields. Over the years, our presence in this industry has equipped us to handle complete travel and destination management across the subcontinent. You can rely on River & Rock Adventure — any time.",
+      {
+        before:
+          "That is where we come in. Complete understanding of the product, long experience and a deep knowledge bank comes handy while we plan the trip for you. Every member of our team brings years of experience in their respective fields. Over the years, our presence in this industry has equipped us to handle ",
+        link: { href: BUCKETLISTT_URL, label: "complete travel and destination management" },
+        after:
+          " across the subcontinent. You can rely on River & Rock Adventure — any time.",
+      },
     ],
   },
 

@@ -1,5 +1,6 @@
 import { SOCIAL_LINKS } from "../../../config/socialLinks";
 import { ACTIVITY_ROUTES } from "../../../config/site";
+import { BUCKETLISTT_URL } from "../../../config/partnerLinks";
 import ActivitiesCardsData from "../../HomeRoutes/ActivitiesCards/ActivitiesCardsData";
 
 const ACTIVITIES_HREF = "#ActivitiesCards";
@@ -45,8 +46,12 @@ const FooterData = {
     email: "salesriverrockholidays@gmail.com",
   },
   social: SOCIAL_LINKS,
-  seoText:
-    "River & Rock Adventure offers the best river rafting in Rishikesh — from gentle Brahmpuri and Club House stretches to thrilling Shivpuri, Marine Drive, and Kaudiyala rapids on the Ganga — plus Himalayan bungee jumps up to 117m with DSLR video, and riverside AC luxury & family cottages with buffet meals, bonfire, and river pool access. Book white water rafting, bungee, and camping stays near NIM Beach, Tapovan, and Ram Jhula with certified guides and safety gear in Rishikesh, Uttarakhand.",
+  seoText: {
+    before: "River & Rock Adventure offers the best ",
+    link: { href: BUCKETLISTT_URL, label: "river rafting in Rishikesh" },
+    after:
+      " — from gentle Brahmpuri and Club House stretches to thrilling Shivpuri, Marine Drive, and Kaudiyala rapids on the Ganga — plus Himalayan bungee jumps up to 117m with DSLR video, and riverside AC luxury & family cottages with buffet meals, bonfire, and river pool access. Book white water rafting, bungee, and camping stays near NIM Beach, Tapovan, and Ram Jhula with certified guides and safety gear in Rishikesh, Uttarakhand.",
+  },
   legal: [
     { label: "Privacy Policy", href: "/privacy-policy" },
     { label: "Terms & Conditions", href: "/terms-and-conditions" },

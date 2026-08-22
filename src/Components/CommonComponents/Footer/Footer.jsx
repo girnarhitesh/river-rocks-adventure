@@ -169,7 +169,23 @@ const Footer = ({ data = FooterData }) => {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.4, ease, delay: 0.1 }}
         >
-          <p>{data.seoText}</p>
+          <p>
+            {typeof data.seoText === "string" ? (
+              data.seoText
+            ) : (
+              <>
+                {data.seoText.before}
+                <a
+                  href={data.seoText.link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {data.seoText.link.label}
+                </a>
+                {data.seoText.after}
+              </>
+            )}
+          </p>
         </motion.div>
 
         <div className="site-footer__divider" aria-hidden="true" />

@@ -219,6 +219,20 @@
   margin: 0;
 }
 
+.site-footer__seo p + p {
+  margin-top: 10px;
+}
+
+.site-footer__seo a {
+  color: inherit;
+  text-decoration: none;
+  font: inherit;
+}
+
+.site-footer__seo a:hover {
+  color: inherit;
+}
+
 .site-footer__divider {
   height: 1px;
   background: var(--color-border);
